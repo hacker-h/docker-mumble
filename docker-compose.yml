@@ -1,0 +1,23 @@
+version: '3.3'
+services:
+
+    murmur:
+        build: ./murmur
+        networks:
+            - internal-mumble
+
+    mumble-web:
+        volumes:
+            - './certs:/certs'
+        environment:
+            - MUMUR_HOST=murmur
+            - MUMUR_PORT=64738
+        ports:
+            - '443:443'
+        build: ./mumble-web
+        networks:
+            - internal-mumble
+        depends_on: ['murmur']
+
+networks:
+    internal-mumble:
