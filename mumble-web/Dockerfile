@@ -1,4 +1,4 @@
-FROM node:13.7.0-alpine3.11
+FROM node:13.14.0-alpine3.11
 # 3dda3d2 on Feb 6, 2019
 # 4ecff11 on Sep 26, 2019
 RUN apk add --no-cache  gcc \
